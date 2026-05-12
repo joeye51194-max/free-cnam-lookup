@@ -18,52 +18,125 @@
         <a href="/articles/what-is-cnam.html">Guides</a>
       </nav>
     </header>
-    <main class="shell">
-      <section class="lookup-panel">
-        <div class="intro">
-          <p class="eyebrow">Free phone intelligence lookup</p>
-          <h1>Free CNAM lookup</h1>
-          <p class="lede">Check caller name, carrier, normalized carrier, and location from a phone number.</p>
+    <main>
+      <section class="hero-shell">
+        <div class="lookup-panel">
+          <div class="intro">
+            <p class="eyebrow">Free phone intelligence lookup</p>
+            <h1>Free CNAM lookup</h1>
+            <p class="lede">Check caller name, carrier, normalized carrier, and broad phone number location before you call back or document a contact.</p>
+          </div>
+
+          <form id="lookup-form" class="lookup-form">
+            <label for="phone-number">Phone number</label>
+            <div class="input-row">
+              <input id="phone-number" name="phoneNumber" type="tel" placeholder="+1 212 555 1212" autocomplete="tel" required>
+              <button type="submit">Lookup</button>
+            </div>
+            <p class="hint">Free lookups are limited to 3 per day. US 10-digit numbers are accepted; international numbers should include country code.</p>
+          </form>
+
+          <p id="message" class="message" role="status"></p>
+
+          <section id="result" class="result" hidden>
+            <div class="result-header">
+              <div>
+                <p class="eyebrow">Lookup result</p>
+                <h2 id="result-number"></h2>
+              </div>
+              <span id="line-type" class="badge"></span>
+            </div>
+            <dl class="result-grid">
+              <div><dt>Caller name</dt><dd id="caller-name"></dd></div>
+              <div><dt>Carrier</dt><dd id="carrier"></dd></div>
+              <div><dt>Normalized carrier</dt><dd id="normalized-carrier"></dd></div>
+              <div><dt>Location</dt><dd id="location"></dd></div>
+            </dl>
+          </section>
         </div>
 
-        <form id="lookup-form" class="lookup-form">
-          <label for="phone-number">Phone number</label>
-          <div class="input-row">
-            <input id="phone-number" name="phoneNumber" type="tel" placeholder="+1 212 555 1212" autocomplete="tel" required>
-            <button type="submit">Lookup</button>
+        <aside class="ad-rail" aria-label="Sponsored">
+          <div class="ad-slot" data-ad-slot="rectangle">
+            <span>Ad space</span>
+            <strong>300 x 250</strong>
           </div>
-          <p class="hint">US 10-digit numbers are accepted; international numbers should include country code.</p>
-        </form>
-
-        <p id="message" class="message" role="status"></p>
-
-        <section id="result" class="result" hidden>
-          <div class="result-header">
-            <div>
-              <p class="eyebrow">Lookup result</p>
-              <h2 id="result-number"></h2>
-            </div>
-            <span id="line-type" class="badge"></span>
+          <div class="trust-panel">
+            <p class="eyebrow">What you can check</p>
+            <ul>
+              <li>Caller name records when available</li>
+              <li>Carrier and normalized carrier</li>
+              <li>Line type signals such as mobile, VoIP, or toll-free</li>
+              <li>Broad number location from telecom data</li>
+            </ul>
           </div>
-          <dl class="result-grid">
-            <div><dt>Caller name</dt><dd id="caller-name"></dd></div>
-            <div><dt>Carrier</dt><dd id="carrier"></dd></div>
-            <div><dt>Normalized carrier</dt><dd id="normalized-carrier"></dd></div>
-            <div><dt>Location</dt><dd id="location"></dd></div>
-          </dl>
-        </section>
+        </aside>
       </section>
 
-      <aside class="ad-rail" aria-label="Sponsored">
-        <div class="ad-slot" data-ad-slot="rectangle">
-          <span>Ad space</span>
-          <strong>300 x 250</strong>
+      <section class="content-band">
+        <div class="section-heading">
+          <p class="eyebrow">Understand the result</p>
+          <h2>What a CNAM lookup can tell you</h2>
+          <p>CNAM and carrier records are helpful signals for identifying unknown numbers, checking business caller ID, and reviewing call logs. Results depend on upstream telecom data and may be incomplete for mobile, VoIP, or recently ported numbers.</p>
         </div>
-        <div class="ad-slot small" data-ad-slot="link">
-          <span>Sponsored link</span>
-          <strong>Your ad here</strong>
+        <div class="info-grid">
+          <article>
+            <h3>Caller name</h3>
+            <p>The display name associated with a phone number. It may show a business, personal name, generic wireless label, or no result.</p>
+          </article>
+          <article>
+            <h3>Carrier</h3>
+            <p>The network or provider connected to the number. Carrier data can help identify mobile, landline, VoIP, and toll-free numbers.</p>
+          </article>
+          <article>
+            <h3>Normalized carrier</h3>
+            <p>A cleaner carrier label that can make messy telecom names easier to compare across lookups.</p>
+          </article>
+          <article>
+            <h3>Location</h3>
+            <p>A broad numbering or routing location. It is not the caller's live physical location.</p>
+          </article>
         </div>
-      </aside>
+      </section>
+
+      <section class="content-band muted-band">
+        <div class="section-heading">
+          <p class="eyebrow">CNAM guides</p>
+          <h2>Learn how phone lookup data works</h2>
+        </div>
+        <div class="guide-grid">
+          <a href="/articles/what-is-cnam.html">What is CNAM?</a>
+          <a href="/articles/cnam-vs-caller-id.html">CNAM vs caller ID</a>
+          <a href="/articles/why-caller-names-show-wrong.html">Why caller names show wrong</a>
+          <a href="/articles/how-carrier-lookup-works.html">How carrier lookup works</a>
+          <a href="/articles/is-cnam-lookup-free.html">Is CNAM lookup free?</a>
+          <a href="/articles/how-to-identify-voip-numbers.html">How to identify VoIP numbers</a>
+        </div>
+      </section>
+
+      <section class="content-band">
+        <div class="section-heading">
+          <p class="eyebrow">Common questions</p>
+          <h2>Free CNAM lookup FAQ</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Why is the caller name missing?</summary>
+            <p>Some numbers do not have a public caller name record, and some carriers return generic labels. Recently ported numbers can also take time to update.</p>
+          </details>
+          <details>
+            <summary>Can a CNAM lookup prove who called me?</summary>
+            <p>No. CNAM is a useful signal, but caller ID can be spoofed. Use it with carrier, line type, call context, and common sense.</p>
+          </details>
+          <details>
+            <summary>Is the location exact?</summary>
+            <p>No. Location usually reflects numbering or routing data, not a person's current GPS or live location.</p>
+          </details>
+          <details>
+            <summary>Why are free lookups limited?</summary>
+            <p>Lookup data has provider costs. Daily limits help keep the tool available while reducing abuse and automated scraping.</p>
+          </details>
+        </div>
+      </section>
     </main>
     <footer class="footer">
       <a href="/about.html">About</a>
