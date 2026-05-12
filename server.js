@@ -5,7 +5,6 @@ import rateLimit from 'express-rate-limit';
 
 const app = express();
 const port = Number(process.env.PORT || 3000);
-const siteUrl = (process.env.SITE_URL || `http://localhost:${port}`).replace(/\/$/, '');
 const staticPages = [
   '/',
   '/about.html',
@@ -19,6 +18,16 @@ const staticPages = [
   '/articles/is-cnam-lookup-free.html',
   '/articles/how-to-identify-voip-numbers.html'
 ];
+
+function getSiteUrl(req) {
+  if (process.env.SITE_URL) {
+    return process.env.SITE_URL.replace(/\/$/, '');
+  }
+
+  const protocol = req.get('x-forwarded-proto') || req.protocol || 'https';
+  const host = req.get('host');
+  return `${protocol}://${host}`.replace(/\/$/, '');
+}
 
 app.use(
   helmet({
@@ -37,11 +46,13 @@ app.use(
 app.use(express.json({ limit: '12kb' }));
 app.use(express.static('public'));
 
-app.get('/robots.txt', (_req, res) => {
+app.get('/robots.txt', (req, res) => {
+  const siteUrl = getSiteUrl(req);
   res.type('text/plain').send(`User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
 });
 
-app.get('/sitemap.xml', (_req, res) => {
+app.get('/sitemap.xml', (req, res) => {
+  const siteUrl = getSiteUrl(req);
   const urls = staticPages
     .map((page) => `  <url><loc>${siteUrl}${page}</loc></url>`)
     .join('\n');
