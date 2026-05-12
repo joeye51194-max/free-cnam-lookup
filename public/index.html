@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free CNAM lookup tool for checking caller name, carrier, normalized carrier, and phone number location.">
+    <title>Free CNAM Lookup - Caller Name & Carrier Lookup</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">FreeCNAMLookup</a>
+      <nav aria-label="Main navigation">
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/articles/what-is-cnam.html">Guides</a>
+      </nav>
+    </header>
+    <main class="shell">
+      <section class="lookup-panel">
+        <div class="intro">
+          <p class="eyebrow">Free phone intelligence lookup</p>
+          <h1>Free CNAM lookup</h1>
+          <p class="lede">Check caller name, carrier, normalized carrier, and location from a phone number.</p>
+        </div>
+
+        <form id="lookup-form" class="lookup-form">
+          <label for="phone-number">Phone number</label>
+          <div class="input-row">
+            <input id="phone-number" name="phoneNumber" type="tel" placeholder="+1 212 555 1212" autocomplete="tel" required>
+            <button type="submit">Lookup</button>
+          </div>
+          <p class="hint">US 10-digit numbers are accepted; international numbers should include country code.</p>
+        </form>
+
+        <p id="message" class="message" role="status"></p>
+
+        <section id="result" class="result" hidden>
+          <div class="result-header">
+            <div>
+              <p class="eyebrow">Lookup result</p>
+              <h2 id="result-number"></h2>
+            </div>
+            <span id="line-type" class="badge"></span>
+          </div>
+          <dl class="result-grid">
+            <div><dt>Caller name</dt><dd id="caller-name"></dd></div>
+            <div><dt>Carrier</dt><dd id="carrier"></dd></div>
+            <div><dt>Normalized carrier</dt><dd id="normalized-carrier"></dd></div>
+            <div><dt>Location</dt><dd id="location"></dd></div>
+          </dl>
+        </section>
+      </section>
+
+      <aside class="ad-rail" aria-label="Sponsored">
+        <div class="ad-slot" data-ad-slot="rectangle">
+          <span>Ad space</span>
+          <strong>300 x 250</strong>
+        </div>
+        <div class="ad-slot small" data-ad-slot="link">
+          <span>Sponsored link</span>
+          <strong>Your ad here</strong>
+        </div>
+      </aside>
+    </main>
+    <footer class="footer">
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/articles/what-is-cnam.html">CNAM guides</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </footer>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
