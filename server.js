@@ -132,7 +132,7 @@ app.get('/api/config', (_req, res) => {
 
 app.post('/api/lookup', lookupLimiter, async (req, res) => {
   if (!process.env.TELNYX_API_KEY) {
-    res.status(500).json({ error: 'TELNYX_API_KEY is not configured on the server.' });
+    res.status(503).json({ error: 'Lookup service is temporarily unavailable. Please try again later.' });
     return;
   }
 
@@ -160,14 +160,14 @@ app.post('/api/lookup', lookupLimiter, async (req, res) => {
 
     if (!telnyxResponse.ok) {
       res.status(telnyxResponse.status).json({
-        error: payload?.errors?.[0]?.detail || payload?.message || 'Telnyx lookup failed.'
+        error: 'Lookup could not be completed. Please check the number and try again.'
       });
       return;
     }
 
     res.json({ result: pickResult(payload.data || {}) });
   } catch {
-    res.status(502).json({ error: 'Could not reach Telnyx. Try again in a moment.' });
+    res.status(502).json({ error: 'Lookup service is temporarily unavailable. Please try again later.' });
   }
 });
 
