@@ -20,8 +20,9 @@ const staticPages = [
 ];
 
 function getSiteUrl(req) {
-  if (process.env.SITE_URL) {
-    return process.env.SITE_URL.replace(/\/$/, '');
+  const configuredSiteUrl = process.env.SITE_URL?.replace(/\/$/, '');
+  if (configuredSiteUrl && !configuredSiteUrl.includes('localhost') && !configuredSiteUrl.includes('127.0.0.1')) {
+    return configuredSiteUrl;
   }
 
   const protocol = req.get('x-forwarded-proto') || req.protocol || 'https';
