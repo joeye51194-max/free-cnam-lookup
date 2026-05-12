@@ -18,20 +18,37 @@
 }
 
 body {
+  position: relative;
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 12% 8%, rgba(11, 111, 106, 0.13) 0 1px, transparent 2px),
-    radial-gradient(circle at 82% 18%, rgba(240, 184, 79, 0.18) 0 1px, transparent 2px),
-    linear-gradient(135deg, rgba(11, 111, 106, 0.08), transparent 32%),
-    linear-gradient(315deg, rgba(23, 32, 42, 0.06), transparent 28%),
+    linear-gradient(135deg, rgba(11, 111, 106, 0.10), transparent 34%),
+    linear-gradient(315deg, rgba(240, 184, 79, 0.16), transparent 32%),
     var(--paper);
-  background-size: 22px 22px, 28px 28px, auto, auto, auto;
   color: var(--ink);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(23, 32, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 32, 42, 0.035) 1px, transparent 1px),
+    repeating-linear-gradient(135deg, transparent 0 34px, rgba(11, 111, 106, 0.045) 34px 35px, transparent 35px 78px);
+  background-size: 34px 34px, 34px 34px, auto;
+  pointer-events: none;
 }
 
 a {
   color: var(--accent-dark);
+}
+
+.site-header,
+main,
+.footer {
+  position: relative;
 }
 
 .site-header {
@@ -161,8 +178,20 @@ button {
   cursor: pointer;
 }
 
+button.secondary-button {
+  min-height: 42px;
+  border: 1px solid rgba(11, 111, 106, 0.28);
+  background: #fff;
+  color: var(--accent-dark);
+  padding: 0 14px;
+}
+
 button:hover {
   background: var(--accent-dark);
+}
+
+button.secondary-button:hover {
+  background: var(--soft);
 }
 
 button:disabled {
@@ -230,6 +259,22 @@ button:disabled {
   border-radius: 8px;
   padding: 14px;
   background: #fbfcfd;
+}
+
+.result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.result-actions p {
+  max-width: 520px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
 dt {
@@ -308,6 +353,12 @@ dd {
   background: var(--soft);
 }
 
+.trust-band {
+  background:
+    linear-gradient(90deg, rgba(11, 111, 106, 0.08), transparent 45%),
+    rgba(255, 255, 255, 0.94);
+}
+
 .section-heading,
 .info-grid,
 .guide-grid,
@@ -338,6 +389,10 @@ dd {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
   margin-top: 28px;
+}
+
+.info-grid.three-up {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .info-grid article {
@@ -468,6 +523,10 @@ details p {
   .info-grid,
   .guide-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .info-grid.three-up {
+    grid-template-columns: 1fr;
   }
 }
 

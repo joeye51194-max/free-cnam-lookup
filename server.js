@@ -35,7 +35,7 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", 'https://pagead2.googlesyndication.com'],
+        scriptSrc: ["'self'", "'unsafe-inline'", 'https://pagead2.googlesyndication.com'],
         styleSrc: ["'self'"],
         imgSrc: ["'self'", 'data:', 'https:'],
         connectSrc: ["'self'"],

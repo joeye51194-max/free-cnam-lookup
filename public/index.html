@@ -5,8 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Free CNAM lookup tool for checking caller name, carrier, normalized carrier, and phone number location.">
     <meta name="google-site-verification" content="DCcruwFE995gPhRoCWEAUGWD_F2QMzEqRmILkYNmvQM">
+    <link rel="canonical" href="https://freecnamlookingup.com/">
+    <meta property="og:title" content="Free CNAM Lookup - Caller Name & Carrier Lookup">
+    <meta property="og:description" content="Check caller name, carrier, normalized carrier, and broad phone number location with a free CNAM lookup tool.">
+    <meta property="og:url" content="https://freecnamlookingup.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
     <title>Free CNAM Lookup - Caller Name & Carrier Lookup</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5598442129425089" crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Free CNAM Lookup",
+        "url": "https://freecnamlookingup.com/",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "description": "Free caller name and carrier lookup tool for checking CNAM, normalized carrier, line type, and broad phone number location.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why is the caller name missing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Some numbers do not have a public caller name record, and some carriers return generic labels. Recently ported numbers can also take time to update."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can a CNAM lookup prove who called me?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. CNAM is a useful signal, but caller ID can be spoofed. Use it with carrier, line type, call context, and common sense."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is the location exact?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Location usually reflects numbering or routing data, not a person's current GPS or live location."
+            }
+          }
+        ]
+      }
+    </script>
     <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
@@ -52,6 +106,10 @@
               <div><dt>Normalized carrier</dt><dd id="normalized-carrier"></dd></div>
               <div><dt>Location</dt><dd id="location"></dd></div>
             </dl>
+            <div class="result-actions">
+              <button id="copy-result" type="button" class="secondary-button">Copy result</button>
+              <p>Lookup results are informational and should be used as one signal, not proof of identity.</p>
+            </div>
           </section>
         </div>
 
@@ -110,6 +168,28 @@
           <a href="/articles/how-carrier-lookup-works.html">How carrier lookup works</a>
           <a href="/articles/is-cnam-lookup-free.html">Is CNAM lookup free?</a>
           <a href="/articles/how-to-identify-voip-numbers.html">How to identify VoIP numbers</a>
+        </div>
+      </section>
+
+      <section class="content-band trust-band">
+        <div class="section-heading">
+          <p class="eyebrow">Built for responsible use</p>
+          <h2>Simple lookup, clear limits, no account required</h2>
+          <p>FreeCNAMLookup is designed for quick number checks, call documentation, and basic phone intelligence. Daily limits reduce abuse and help keep the tool available without requiring signups or storing user accounts.</p>
+        </div>
+        <div class="info-grid three-up">
+          <article>
+            <h3>Privacy-conscious</h3>
+            <p>No login is required to run a lookup. Submitted numbers are processed only so the lookup result can be returned.</p>
+          </article>
+          <article>
+            <h3>Clear limitations</h3>
+            <p>CNAM and carrier data can be missing, stale, or generic. Results should be verified when accuracy matters.</p>
+          </article>
+          <article>
+            <h3>Abuse protection</h3>
+            <p>Lookups are rate-limited to protect the service from automated scraping and unexpected telecom data costs.</p>
+          </article>
         </div>
       </section>
 

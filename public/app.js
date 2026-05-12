@@ -1,6 +1,8 @@
 const form = document.querySelector('#lookup-form');
 const message = document.querySelector('#message');
 const resultPanel = document.querySelector('#result');
+const copyResultButton = document.querySelector('#copy-result');
+let lastResultText = '';
 
 const fields = {
   number: document.querySelector('#result-number'),
@@ -58,8 +60,27 @@ function displayResult(result) {
   fields.carrier.textContent = result.carrierName || fallback;
   fields.normalizedCarrier.textContent = result.normalizedCarrier || fallback;
   fields.location.textContent = [result.city, result.state, result.countryCode].filter(Boolean).join(', ') || fallback;
+  lastResultText = [
+    `Phone number: ${fields.number.textContent}`,
+    `Line type: ${fields.lineType.textContent}`,
+    `Caller name: ${fields.callerName.textContent}`,
+    `Carrier: ${fields.carrier.textContent}`,
+    `Normalized carrier: ${fields.normalizedCarrier.textContent}`,
+    `Location: ${fields.location.textContent}`
+  ].join('\n');
   resultPanel.hidden = false;
 }
+
+copyResultButton?.addEventListener('click', async () => {
+  if (!lastResultText) return;
+
+  try {
+    await navigator.clipboard.writeText(lastResultText);
+    setMessage('Result copied.', 'success');
+  } catch {
+    setMessage('Could not copy result. You can select the text manually.', 'error');
+  }
+});
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
