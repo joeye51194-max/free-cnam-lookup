@@ -63,7 +63,7 @@ app.get('/sitemap.xml', (req, res) => {
 
 const lookupLimiter = rateLimit({
   windowMs: 24 * 60 * 60 * 1000,
-  limit: 3,
+  limit: 5,
   message: { error: 'Daily lookup limit reached. Please try again tomorrow.' },
   standardHeaders: true,
   legacyHeaders: false
