@@ -38,7 +38,7 @@ Configured in Railway, not committed to GitHub:
 - `TELNYX_API_KEY`
 - `SITE_URL=https://freecnamlookingup.com`
 - `ADS_ENABLED=false` while waiting for AdSense approval
-- `ADSENSE_CLIENT_ID=ca-pub-5598442129425089`
+- `ADSENSE_CLIENT_ID=ca-pub-7212750288013173`
 - `ADSENSE_SLOT_RECT`
 - `ADSENSE_SLOT_LINK`
 
@@ -48,7 +48,7 @@ Do not commit `.env`; it is ignored by git.
 
 Publisher ID:
 
-- `ca-pub-5598442129425089`
+- `ca-pub-7212750288013173`
 
 AdSense verification script has been added to public pages.
 
